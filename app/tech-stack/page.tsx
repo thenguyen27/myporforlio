@@ -7,7 +7,8 @@ import Footer from '../../components/Footer';
 import Link from 'next/link';
 
 export default function TechStackPage() {
-  const [activeCategory, setActiveCategory] = useState('Frontend');
+  type Category = keyof typeof technologies;
+const [activeCategory, setActiveCategory] = useState<Category>('Frontend');
 
   const technologies = {
     'Frontend': [
@@ -142,7 +143,7 @@ export default function TechStackPage() {
     ]
   };
 
-  const categories = Object.keys(technologies);
+const categories = Object.keys(technologies) as Array<keyof typeof technologies>;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50/40 via-cyan-50/20 to-sky-50/40">
