@@ -129,7 +129,7 @@ const texts = [
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-sky-300/30 to-cyan-300/30 rounded-full blur-xl"></div>
                 <img
-                  src="/resources/images/avt.png"
+                  src="resources/images/avt.png"
                   alt="Nguyen Tran Profile"
                   className="relative w-[300px] h-[300px] rounded-full object-cover shadow-lg border-4 border-white/80 hover:scale-105 transition-transform duration-300"
                 />

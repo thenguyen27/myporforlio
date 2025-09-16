@@ -1,23 +1,24 @@
 import type { NextConfig } from "next";
 
-const repoName = "myporforlio"; 
-const isProd = process.env.NODE_ENV === "production";
-const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
+const repoName = "myporforlio";
 
 const nextConfig: NextConfig = {
-  trailingSlash: false,
   output: "export",
-  // Chỉ apply basePath khi build cho GitHub Pages
-  basePath: (isProd && isGitHubPages) ? `/${repoName}` : "",
-  assetPrefix: (isProd && isGitHubPages) ? `/${repoName}/` : "",
+
+  basePath: `/${repoName}`,
+  assetPrefix: `/${repoName}/`, // 👈 ép Next.js load assets từ /resources
+
+  trailingSlash: false,
+
   images: {
     unoptimized: true,
   },
-  typescript: {
-    // ignoreBuildErrors: true,
-  },
+
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };
 

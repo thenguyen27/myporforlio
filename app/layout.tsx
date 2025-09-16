@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Pacifico } from "next/font/google";
-import "./app/globals.css";
 
 const pacifico = Pacifico({
   weight: '400',
