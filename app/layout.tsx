@@ -21,7 +21,32 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Nguyen Tran - Developer Portfolio",
-  description: "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
+  description:
+    "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
+  openGraph: {
+    title: "Nguyen Tran - Developer Portfolio",
+    description:
+      "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
+    url: "https://devtrails.io.vn",
+    siteName: "DevTrails",
+    images: [
+      {
+        url: "https://devtrails.io.vn/resources/images/thumbnail.jpg", // ảnh thumbnail của bạn
+        width: 1200,
+        height: 630,
+        alt: "Nguyen Tran Portfolio Thumbnail",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nguyen Tran - Developer Portfolio",
+    description:
+      "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
+    images: ["https://devtrails.io.vn/resources/images/thumbnail.jpg"],
+  },
 };
 
 export default function RootLayout({
