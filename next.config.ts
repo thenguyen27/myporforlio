@@ -5,7 +5,7 @@ const isProd = process.env.NODE_ENV === "production";
 const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
 
 const nextConfig: NextConfig = {
-  trailingSlash: true,
+  trailingSlash: false,
   output: "export",
   // Chỉ apply basePath khi build cho GitHub Pages
   basePath: (isProd && isGitHubPages) ? `/${repoName}` : "",

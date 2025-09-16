@@ -2,11 +2,11 @@
   "name": "next-app",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "lint": "next lint",
-    "dev": "next dev",
+    "scripts": {
     "build": "next build",
-    "deploy": "npm run build && npx gh-pages -d out"
+    "export": "next export",
+    "predeploy": "next build",
+  "deploy": "echo > out/.nojekyll && gh-pages -d out -b gh-pages"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.19.3",
