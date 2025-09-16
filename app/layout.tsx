@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Nguyen Tran - Developer Portfolio",
     description:
       "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
-    images: ["/images/thumbnail.jpg"],
+    images: ["/resources/images/thumbnail.jpg"],
   },
 };
 
