@@ -28,7 +28,7 @@ export const metadata = {
     description: "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
     url: "https://devtrails.io.vn/",
     siteName: "DevTrails",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Nguyen Tran Portfolio Thumbnail" }],
+    images: [{ url: "/images/thumbnail.jpg", width: 1200, height: 630, alt: "Nguyen Tran Portfolio Thumbnail" }],
     type: "website",
   },
   twitter: {
