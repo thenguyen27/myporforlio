@@ -10,30 +10,37 @@ export default function AboutSection() {
     teamProjects: 0
   });
 
-  useEffect(() => {
-    const duration = 2000;
-    const targets = { experience: 1.5, projects: 3, teamProjects: 3 } ;
-    const intervals = {};
+useEffect(() => {
+  const duration = 2000;
 
-    Object.keys(targets).forEach(key => {
-      const increment = targets[key] / (duration / 50);
-      let current = 0;
-      
-      intervals[key] = setInterval(() => {
-        current += increment;
-        if (current >= targets[key]) {
-          setCounters(prev => ({ ...prev, [key]: targets[key] }));
-          clearInterval(intervals[key]);
-        } else {
-          setCounters(prev => ({ ...prev, [key]: Math.floor(current) }));
-        }
-      }, 50);
-    });
+  const targets: Record<string, number> = {
+    experience: 1.5,
+    projects: 3,
+    teamProjects: 3
+  };
 
-    return () => {
-      Object.values(intervals).forEach(clearInterval);
-    };
-  }, []);
+  const intervals: Record<string, NodeJS.Timeout> = {};
+
+  Object.keys(targets).forEach(key => {
+    const increment = targets[key] / (duration / 50);
+    let current = 0;
+
+    intervals[key] = setInterval(() => {
+      current += increment;
+      if (current >= targets[key]) {
+        setCounters(prev => ({ ...prev, [key]: targets[key] }));
+        clearInterval(intervals[key]);
+      } else {
+        setCounters(prev => ({ ...prev, [key]: Math.floor(current) }));
+      }
+    }, 50);
+  });
+
+  return () => {
+    Object.values(intervals).forEach(clearInterval);
+  };
+}, []);
+
 
   return (
     <section id="about" className="py-20 bg-white">
