@@ -65,7 +65,7 @@ export default function Footer() {
             </h4>
             <div className="flex space-x-4">
               <a
-                href="https://linkedin.com/in/nguyen-tran"
+                href="https://www.linkedin.com/in/thenguyennn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group w-12 h-12 bg-gradient-to-r from-sky-300 to-cyan-300 hover:from-sky-400 hover:to-cyan-400 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6 cursor-pointer"
@@ -73,7 +73,7 @@ export default function Footer() {
                 <i className="ri-linkedin-fill group-hover:scale-110 transition-transform duration-200"></i>
               </a>
               <a
-                href="https://github.com/nguyen-tran"
+                href="https://github.com/thenguyen27"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group w-12 h-12 bg-gray-700 hover:bg-gray-600 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6 cursor-pointer"
