@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "DevTrails",
     images: [
       {
-        url: "resources/images/avt.png",
+        url: "https://devtrails.io.vn/resources/images/avt.png",
         width: 1200,
         height: 630,
         alt: "Nguyen Tran Portfolio Thumbnail",
