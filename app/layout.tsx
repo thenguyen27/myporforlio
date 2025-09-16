@@ -19,25 +19,35 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://devtrails.io.vn"),
   title: "Nguyen Tran - Developer Portfolio",
-  description: "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
+  description:
+    "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
   openGraph: {
     title: "Nguyen Tran - Developer Portfolio",
-    description: "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
+    description:
+      "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
     url: "https://devtrails.io.vn/",
     siteName: "DevTrails",
-    images: [{ url: "/images/thumbnail.jpg", width: 1200, height: 630, alt: "Nguyen Tran Portfolio Thumbnail" }],
+    images: [
+      {
+        url: "/images/thumbnail.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nguyen Tran Portfolio Thumbnail",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nguyen Tran - Developer Portfolio",
-    description: "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
-    images: ["/og.jpg"],
+    description:
+      "Passionate developer focused on Clean Code, System Performance, and Optimization Techniques",
+    images: ["/images/thumbnail.jpg"],
   },
-} satisfies Metadata;
+};
 
 export default function RootLayout({
   children,
