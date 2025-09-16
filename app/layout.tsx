@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "DevTrails",
     images: [
       {
-        url: "/images/thumbnail.jpg",
+        url: "/resources/images/thumbnail.jpg",
         width: 1200,
         height: 630,
         alt: "Nguyen Tran Portfolio Thumbnail",
