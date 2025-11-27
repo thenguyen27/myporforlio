@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dev Horizon Festival</title>
+    <!-- JS-disabled guard: if JavaScript is blocked, redirect or blank page -->
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=about:blank" />
+      <style>
+        html,
+        body {
+          display: none !important;
+        }
+      </style>
+    </noscript>
+    <!-- Pre-load guard: hide content until DevTools check runs -->
+    <style id="preload-hide">
+      html,
+      body {
+        visibility: hidden !important;
+      }
+    </style>
+    <script>
+      ;(function () {
+        const threshold = 80 // lower threshold for tighter detection
+        const REDIRECT_ON_DETECT = true // redirect to blank instead of overlay
+
+        function isDevToolsOpenBySize() {
+          const wDiff = window.outerWidth - window.innerWidth
+          const hDiff = window.outerHeight - window.innerHeight
+          return wDiff > threshold || hDiff > threshold
+        }
+
+        function isDevToolsOpenByDebugger() {
+          const t = performance.now()
+          // if DevTools is open, 'debugger' will pause and produce a large delay
+          debugger
+          const dt = performance.now() - t
+          return dt > 100 // ms
+        }
+
+        function createOverlay(message) {
+          if (!document.getElementById('devtools-blocker')) {
+            const overlay = document.createElement('div')
+            overlay.id = 'devtools-blocker'
+            overlay.style.position = 'fixed'
+            overlay.style.inset = '0'
+            overlay.style.background = '#000'
+            overlay.style.color = '#fff'
+            overlay.style.zIndex = '2147483647'
+            overlay.style.display = 'flex'
+            overlay.style.alignItems = 'center'
+            overlay.style.justifyContent = 'center'
+            overlay.style.fontFamily = 'Inter, sans-serif'
+            overlay.style.fontSize = '16px'
+            overlay.style.textAlign = 'center'
+            overlay.style.padding = '24px'
+            overlay.innerHTML = message || 'DevTools đã bị vô hiệu hoá.'
+            document.body.innerHTML = ''
+            document.body.appendChild(overlay)
+          }
+        }
+
+        // expose shared helpers for later script
+        window.__devtoolsGuard__ = {
+          createOverlay,
+          isDevToolsOpenBySize,
+          isDevToolsOpenByDebugger,
+          redirect: REDIRECT_ON_DETECT,
+        }
+
+        let preOpen = false
+        try {
+          preOpen = isDevToolsOpenBySize() || isDevToolsOpenByDebugger()
+        } catch (e) {
+          preOpen = isDevToolsOpenBySize()
+        }
+
+        // If devtools open before load, redirect immediately to avoid any flash
+        if (preOpen && REDIRECT_ON_DETECT) {
+          location.replace('about:blank')
+          return
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+          const hide = document.getElementById('preload-hide')
+          if (hide) hide.remove()
+
+          if (preOpen) {
+            // Fallback to overlay only if not redirecting
+            createOverlay(
+              'DevTools đã bật trước khi vào trang — truy cập bị chặn.'
+            )
+          }
+        })
+      })()
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&family=Teko:wght@300;400;600;700&family=Oswald:wght@400;500;700&family=Exo+2:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&family=Rajdhani:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['var(--font-display)', 'Teko', 'sans-serif'],
+              pixel: ['"Press Start 2P"', 'cursive'],
+              valo: ['Rajdhani', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            borderRadius: {
+              card: 'var(--card-radius)',
+            },
+            colors: {
+              'horizon-pink': 'var(--color-horizon-pink)',
+              'horizon-cyan': 'var(--color-horizon-cyan)',
+              'horizon-yellow': 'var(--color-horizon-yellow)',
+              'horizon-dark': 'var(--color-horizon-dark)',
+              'horizon-gray': 'var(--color-horizon-gray)',
+            },
+            skew: {
+              10: 'var(--skew-10)',
+              '-10': 'var(--skew-neg-10)',
+              12: 'var(--skew-12)',
+              '-12': 'var(--skew-neg-12)',
+              20: 'var(--skew-20)',
+              '-20': 'var(--skew-neg-20)',
+            },
+            keyframes: {
+              shine: {
+                '0%': { left: '-100%' },
+                '100%': { left: '200%' },
+              },
+            },
+            animation: {
+              'shine-sweep': 'shine 1s ease-in-out',
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      :root {
+        /* Default Theme (Festival) Fallback */
+        --color-horizon-pink: #ff007f;
+        --color-horizon-cyan: #00f0ff;
+        --color-horizon-yellow: #e8ff00;
+        --color-horizon-dark: #1a1a1a;
+        --color-horizon-gray: #f3f4f6;
+
+        --skew-10: 10deg;
+        --skew-neg-10: -10deg;
+        --skew-12: 12deg;
+        --skew-neg-12: -12deg;
+        --skew-20: 20deg;
+        --skew-neg-20: -20deg;
+
+        --font-display: 'Teko', sans-serif;
+        --card-radius: 0px;
+      }
+
+      /* Custom Scrollbar for the horizontal garage feel */
+      ::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-horizon-pink);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d10068;
+      }
+      body {
+        overflow-x: hidden;
+        transition: background 0.5s ease, background-color 0.5s ease;
+      }
+
+      /* Global transitions for theme switching */
+      * {
+        transition-property: color, background-color, border-color,
+          text-decoration-color, fill, stroke, transform, border-radius,
+          font-family, box-shadow;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+      }
+
+      /* GTA Text Shadow Utility */
+      .mission-text-shadow {
+        text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+          -1px 1px 0 #000, 1px 1px 0 #000;
+      }
+
+      /* Dead Cells Pixel Font Utility */
+      .font-pixel {
+        font-family: 'Press Start 2P', cursive;
+      }
+
+      /* Disable text selection globally (except form controls) */
+      /* Prevent users from highlighting text/images while keeping inputs editable */
+      html,
+      body,
+      *:not(input):not(textarea):not(select):not(option) {
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://aistudiocdn.com/react@^19.2.0",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+          "react/": "https://aistudiocdn.com/react@^19.2.0/",
+          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+          "recharts": "https://aistudiocdn.com/recharts@^3.5.0"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      // Anti-DevTools: blocks shortcuts/context menu and detects DevTools continuously
+      ;(function () {
+        const DEVTOOLS_REDIRECT =
+          (window.__devtoolsGuard__ && window.__devtoolsGuard__.redirect) ??
+          true // redirect by default
+
+        const createOverlay =
+          (window.__devtoolsGuard__ &&
+            window.__devtoolsGuard__.createOverlay) ||
+          function (msg) {
+            const overlay = document.createElement('div')
+            overlay.id = 'devtools-blocker'
+            overlay.style.position = 'fixed'
+            overlay.style.inset = '0'
+            overlay.style.background = '#000'
+            overlay.style.color = '#fff'
+            overlay.style.zIndex = '2147483647'
+            overlay.style.display = 'flex'
+            overlay.style.alignItems = 'center'
+            overlay.style.justifyContent = 'center'
+            overlay.style.fontFamily = 'Inter, sans-serif'
+            overlay.style.fontSize = '16px'
+            overlay.style.textAlign = 'center'
+            overlay.style.padding = '24px'
+            overlay.innerHTML = msg || 'DevTools đã bị vô hiệu hoá.'
+            document.body.innerHTML = ''
+            document.body.appendChild(overlay)
+          }
+
+        function blockAction() {
+          if (DEVTOOLS_REDIRECT) {
+            location.replace('about:blank')
+            return
+          }
+          if (!document.getElementById('devtools-blocker')) {
+            createOverlay('DevTools đã bị vô hiệu hoá.')
+          }
+        }
+
+        // Block common DevTools shortcuts and actions
+        window.addEventListener(
+          'keydown',
+          function (e) {
+            const key = e.key?.toUpperCase()
+            if (
+              key === 'F12' ||
+              (e.ctrlKey &&
+                e.shiftKey &&
+                (key === 'I' || key === 'J' || key === 'C')) ||
+              (e.ctrlKey && (key === 'U' || key === 'S' || key === 'P'))
+            ) {
+              e.preventDefault()
+              e.stopPropagation()
+              blockAction()
+            }
+          },
+          { capture: true }
+        )
+
+        // Right-click: just disable default menu, do NOT trigger redirect/overlay
+        window.addEventListener(
+          'contextmenu',
+          function (e) {
+            e.preventDefault()
+          },
+          { capture: true }
+        )
+
+        // Detect DevTools by window size changes (dock/open)
+        const threshold = 80 // tighter gap for detection
+        function detectBySize() {
+          const wDiff = window.outerWidth - window.innerWidth
+          const hDiff = window.outerHeight - window.innerHeight
+          if (wDiff > threshold || hDiff > threshold) {
+            blockAction()
+          }
+        }
+        detectBySize()
+        window.addEventListener('resize', detectBySize)
+
+        // Detect via debugger pause
+        function detectByDebugger() {
+          const t = performance.now()
+          debugger
+          const dt = performance.now() - t
+          if (dt > 100) blockAction()
+        }
+        // run on an interval to catch opening after load
+        const dbgTimer = setInterval(function () {
+          try {
+            detectByDebugger()
+          } catch (e) {}
+        }, 1000)
+
+        // Detect DevTools console open via getter side-effect
+        const bait = new Image()
+        Object.defineProperty(bait, 'id', {
+          get: function () {
+            blockAction()
+          },
+        })
+        setInterval(function () {
+          console.log(bait)
+          try {
+            console.clear()
+          } catch {}
+        }, 1000)
+
+        // Extra: attempt to block dragging into console
+        window.addEventListener(
+          'dragstart',
+          function (e) {
+            e.preventDefault()
+          },
+          { capture: true }
+        )
+      })()
+    </script>
+  </body>
+</html>
