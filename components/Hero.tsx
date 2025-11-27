@@ -23,10 +23,10 @@ const Hero: React.FC<HeroProps> = ({ onStart, currentTheme = 'festival' }) => {
           banner: "PRISONERS' QUARTERS",
           title: (
             <>
-              <span className="block text-[#ff2a2a] drop-shadow-[4px_4px_0_#111]">
+              <span className="block text-[#ff2a2a] drop-shadow-[4px_4px_0_#111] text-3xl md:text-6xl">
                 THE. ULTIMATE.
               </span>
-              <span className="block text-[#00d0ff] drop-shadow-[4px_4px_0_#111]">
+              <span className="block text-[#00d0ff] drop-shadow-[4px_4px_0_#111] text-3xl md:text-6xl">
                 CODE. COLLECTOR.
               </span>
             </>
@@ -225,7 +225,7 @@ const Hero: React.FC<HeroProps> = ({ onStart, currentTheme = 'festival' }) => {
               currentTheme === 'club'
                 ? 'tracking-normal'
                 : currentTheme === 'dead-cells'
-                ? 'font-pixel text-3xl md:text-[3.5rem] tracking-widest leading-relaxed'
+                ? 'font-pixel text-2xl md:text-[3.5rem] tracking-widest leading-relaxed break-words w-full px-4'
                 : currentTheme === 'valorant'
                 ? 'font-display tracking-widest'
                 : currentTheme === 'vice-city'
