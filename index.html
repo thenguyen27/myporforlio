@@ -15,16 +15,16 @@
       </style>
     </noscript>
     <!-- Pre-load guard: hide content until DevTools check runs -->
-    <style id="preload-hide">
+    <!-- <style id="preload-hide">
       html,
       body {
         visibility: hidden !important;
       }
-    </style>
+    </style> -->
     <script>
       ;(function () {
         const threshold = 80 // lower threshold for tighter detection
-        const REDIRECT_ON_DETECT = true // redirect to blank instead of overlay
+        const REDIRECT_ON_DETECT = false // redirect to blank instead of overlay
 
         function isDevToolsOpenBySize() {
           const wDiff = window.outerWidth - window.innerWidth
