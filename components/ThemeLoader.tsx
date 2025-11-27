@@ -204,18 +204,18 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
       </div>
 
       {/* --- CONTAINER --- */}
-      <div className="relative z-10 flex w-full h-full">
+      <div className="relative z-10 flex flex-col lg:flex-row w-full h-full overflow-y-auto lg:overflow-hidden">
         {/* --- LEFT SIDEBAR --- */}
-        <div className="w-[35%] p-12 flex flex-col bg-gradient-to-r from-black/90 to-transparent h-full">
+        <div className="w-full lg:w-[35%] p-6 lg:p-12 flex flex-col bg-gradient-to-b lg:bg-gradient-to-r from-black/90 to-transparent h-auto lg:h-full shrink-0">
           <div
-            className="font-['Oswald'] text-6xl uppercase leading-[0.9] mb-10 transition-all duration-300 shrink-0 whitespace-nowrap"
+            className="font-['Oswald'] text-4xl lg:text-6xl uppercase leading-[0.9] mb-6 lg:mb-10 transition-all duration-300 shrink-0 whitespace-nowrap text-center lg:text-left"
             style={{ textShadow: '2px 2px 0 var(--theme-color)' }}
           >
             SELECT THEME
           </div>
 
           <div
-            className="flex flex-col gap-3 overflow-y-auto pr-2 -mr-2 pb-4 no-scrollbar"
+            className="flex flex-col gap-3 overflow-y-auto pr-2 -mr-2 pb-4 no-scrollbar max-h-[30vh] lg:max-h-none"
             style={{ perspective: '500px' }}
           >
             {themes.map((theme, index) => {
@@ -281,18 +281,18 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
             })}
           </div>
 
-          <div className="mt-6 shrink-0 w-full flex justify-end">
+          <div className="mt-6 shrink-0 w-full flex justify-center lg:justify-end">
             <button
               onClick={handleLockIn}
               disabled={isLoading}
-              className="w-fit px-10 py-5 bg-[var(--theme-color)] border-2 border-[var(--theme-color)] text-black font-['Oswald'] text-2xl uppercase cursor-pointer transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_30px_var(--theme-color)] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full lg:w-fit px-6 lg:px-10 py-3 lg:py-5 bg-[var(--theme-color)] border-2 border-[var(--theme-color)] text-black font-['Oswald'] text-xl lg:text-2xl uppercase cursor-pointer transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_30px_var(--theme-color)] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? 'INITIALIZING...' : 'CONFIRM SELECTION'}
             </button>
           </div>
 
           {/* --- FOOTER INFO (Keyboard, System, Social) --- */}
-          <div className="mt-auto pt-8 space-y-6">
+          <div className="mt-auto pt-8 space-y-6 hidden lg:block">
             {/* Option 1: Keyboard Hints */}
             <div className="flex gap-6 opacity-50 font-mono text-xs text-white">
               <div className="flex items-center gap-2">
@@ -348,11 +348,11 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
         </div>
 
         {/* --- RIGHT PREVIEW AREA --- */}
-        <div className="flex-1 flex flex-col p-12 relative">
+        <div className="flex-1 flex flex-col p-6 lg:p-12 relative min-h-[50vh] lg:min-h-auto">
           {/* Personal ID Badge */}
-          <div className="absolute top-12 left-12 text-left z-20 flex items-center gap-4">
+          <div className="absolute top-6 left-6 lg:top-12 lg:left-12 text-left z-20 flex items-center gap-4">
             {/* Avatar */}
-            <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden relative group shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+            <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border-2 border-white/20 overflow-hidden relative group shadow-[0_0_15px_rgba(0,0,0,0.5)]">
               <img
                 src="/Assets/images/avta.jpg"
                 alt="Avatar"
@@ -366,21 +366,21 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
             </div>
 
             <div>
-              <h2 className="m-0 font-['Oswald'] text-2xl text-white tracking-wider">
+              <h2 className="m-0 font-['Oswald'] text-xl lg:text-2xl text-white tracking-wider">
                 NGUYEN TRAN
               </h2>
-              <span className="font-['Rajdhani'] text-gray-400 text-sm tracking-widest">
+              <span className="font-['Rajdhani'] text-gray-400 text-xs lg:text-sm tracking-widest">
                 BACKEND DEVELOPER (1.5 YOE)
               </span>
             </div>
           </div>
 
           {/* Portfolio Title - Top Right */}
-          <div className="absolute top-12 right-12 text-right z-20">
-            <h2 className="m-0 font-['Oswald'] text-4xl text-white tracking-widest font-bold opacity-80">
+          <div className="absolute top-6 right-6 lg:top-12 lg:right-12 text-right z-20">
+            <h2 className="m-0 font-['Oswald'] text-2xl lg:text-4xl text-white tracking-widest font-bold opacity-80">
               PORTFOLIO
             </h2>
-            <div className="text-[var(--theme-color)] text-sm font-mono tracking-[0.5em] mt-1">
+            <div className="text-[var(--theme-color)] text-xs lg:text-sm font-mono tracking-[0.5em] mt-1">
               v2.0 // 2025
             </div>
           </div>
@@ -388,7 +388,7 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
           {/* Hero Text Background */}
           <div
             key={`${activeTheme.id}-bg-text`}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold font-['Oswald'] whitespace-nowrap pointer-events-none select-none animate-in fade-in zoom-in-90 duration-500"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold font-['Oswald'] whitespace-nowrap pointer-events-none select-none animate-in fade-in zoom-in-90 duration-500 hidden lg:block"
             style={{
               textShadow:
                 '0 0 60px var(--theme-color), 0 6px 20px rgba(0,0,0,0.5)',
@@ -415,7 +415,7 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
           {/* Preview Image Frame */}
           <div
             key={`${activeTheme.id}-preview`}
-            className="w-full flex-1 min-h-[300px] bg-black/40 border-2 border-white/10 mb-8 mt-[94px] relative overflow-hidden group animate-in fade-in slide-in-from-right-10 duration-500"
+            className="w-full flex-1 min-h-[200px] lg:min-h-[300px] bg-black/40 border-2 border-white/10 mb-4 lg:mb-8 mt-[80px] lg:mt-[94px] relative overflow-hidden group animate-in fade-in slide-in-from-right-10 duration-500"
           >
             {activeTheme.previewImage ? (
               <>
@@ -444,25 +444,25 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
           {/* Stats Panel */}
           <div
             key={`${activeTheme.id}-stats`}
-            className="flex gap-5 items-end animate-in fade-in slide-in-from-right-10 duration-500 delay-100 fill-mode-both"
+            className="flex flex-col lg:flex-row gap-3 lg:gap-5 items-stretch lg:items-end animate-in fade-in slide-in-from-right-10 duration-500 delay-100 fill-mode-both"
           >
-            <div className="bg-black/60 border-t-2 border-[var(--theme-color)] p-5 w-[200px] backdrop-blur-md">
+            <div className="bg-black/60 border-t-2 border-[var(--theme-color)] p-3 lg:p-5 w-full lg:w-[200px] backdrop-blur-md">
               <div className="text-xs text-gray-400 uppercase">
                 Visual Style
               </div>
-              <div className="text-2xl font-bold mt-1 truncate">
+              <div className="text-xl lg:text-2xl font-bold mt-1 truncate">
                 {activeTheme.fontDisplay.split(',')[0].replace(/'/g, '')}
               </div>
             </div>
-            <div className="bg-black/60 border-t-2 border-[var(--theme-color)] p-5 w-[200px] backdrop-blur-md">
+            <div className="bg-black/60 border-t-2 border-[var(--theme-color)] p-3 lg:p-5 w-full lg:w-[200px] backdrop-blur-md">
               <div className="text-xs text-gray-400 uppercase">System ID</div>
-              <div className="text-2xl font-bold mt-1 text-[var(--theme-color)] truncate">
+              <div className="text-xl lg:text-2xl font-bold mt-1 text-[var(--theme-color)] truncate">
                 {activeTheme.id.toUpperCase()}
               </div>
             </div>
-            <div className="bg-black/60 border-t-2 border-[var(--theme-color)] p-5 flex-1 backdrop-blur-md">
+            <div className="bg-black/60 border-t-2 border-[var(--theme-color)] p-3 lg:p-5 flex-1 backdrop-blur-md">
               <div className="text-xs text-gray-400 uppercase">Description</div>
-              <div className="text-lg mt-1 leading-tight text-gray-200">
+              <div className="text-sm lg:text-lg mt-1 leading-tight text-gray-200">
                 {activeTheme.description}
               </div>
             </div>
@@ -472,7 +472,7 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
 
       {/* --- LOADING OVERLAY --- */}
       {isLoading && (
-        <div className="absolute inset-0 z-50 bg-[#0f1923] flex flex-col items-center justify-center">
+        <div className="absolute inset-0 z-50 bg-[#0f1923] flex flex-col items-center justify-center p-4">
           {/* Grid Background */}
           <div
             className="absolute inset-0 opacity-20"
@@ -484,21 +484,21 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
           />
 
           {/* Central Content */}
-          <div className="relative z-10 w-[600px] flex flex-col items-center">
+          <div className="relative z-10 w-full max-w-[600px] flex flex-col items-center">
             {/* Rotating Rings */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-[var(--theme-color)] rounded-full opacity-10 animate-[spin_10s_linear_infinite] border-t-transparent border-l-transparent pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/10 rounded-full animate-[spin_5s_linear_infinite_reverse] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] lg:w-[800px] lg:h-[800px] border border-[var(--theme-color)] rounded-full opacity-10 animate-[spin_10s_linear_infinite] border-t-transparent border-l-transparent pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] lg:w-[600px] lg:h-[600px] border border-white/10 rounded-full animate-[spin_5s_linear_infinite_reverse] pointer-events-none" />
 
             {/* Status Text */}
             <div
-              className="text-5xl font-['Oswald'] font-bold text-white mb-12 tracking-[0.2em] animate-pulse text-center"
+              className="text-2xl lg:text-5xl font-['Oswald'] font-bold text-white mb-8 lg:mb-12 tracking-[0.2em] animate-pulse text-center"
               style={{ textShadow: '0 0 20px var(--theme-color)' }}
             >
               {loadingText}
             </div>
 
             {/* Segmented Progress Bar */}
-            <div className="w-full h-6 bg-black/50 border border-white/10 skew-x-[-20deg] p-1 flex gap-1 mb-4">
+            <div className="w-full h-4 lg:h-6 bg-black/50 border border-white/10 skew-x-[-20deg] p-1 flex gap-1 mb-4">
               {Array.from({ length: 40 }).map((_, i) => (
                 <div
                   key={i}
@@ -512,11 +512,11 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
             </div>
 
             {/* Stats Row */}
-            <div className="w-full flex justify-between font-mono text-xs text-[var(--theme-color)] opacity-80 tracking-widest">
+            <div className="w-full flex justify-between font-mono text-[10px] lg:text-xs text-[var(--theme-color)] opacity-80 tracking-widest">
               <div>
                 SYSTEM_INTEGRITY: <span className="text-white">100%</span>
               </div>
-              <div>
+              <div className="hidden sm:block">
                 DATA_STREAM:{' '}
                 <span className="text-white">
                   {Math.floor(progress * 42.4)} MB/s
