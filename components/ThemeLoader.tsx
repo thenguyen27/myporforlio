@@ -354,7 +354,7 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
             {/* Avatar */}
             <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden relative group shadow-[0_0_15px_rgba(0,0,0,0.5)]">
               <img
-                src="../Assets/images/avta.jpg"
+                src="/Assets/images/avta.jpg"
                 alt="Avatar"
                 className={`w-full h-full object-cover transition-all duration-500 ${
                   activeTheme.id === 'valorant'

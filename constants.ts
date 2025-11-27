@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
     class: 'B',
     rating: 820,
     tech: ['PHP', 'Laravel', 'Bootstrap', 'MySQL'],
-    image: './Assets/images/projects/img-laudry-project.png',
+    image: '/Assets/images/projects/img-laudry-project.png',
     description:
       'B2B Laundry service booking system optimized for operational efficiency.',
   },
@@ -136,22 +136,22 @@ export const SOCIALS = [
 
 // Centralized hero background images per theme for easy modification
 export const HERO_BACKGROUNDS: Record<string, string> = {
-  'dead-cells': './Assets/images/themes/theme-cell.png',
-  valorant: './Assets/images/themes/theme-valo.png',
-  club: './Assets/images/themes/theme-club.png',
-  'vice-city': './Assets/images/themes/theme-vicedev.png',
-  'neon-city': './Assets/images/themes/theme-neon.png',
-  festival: './Assets/images/themes/theme-horizon.png',
+  'dead-cells': '/Assets/images/themes/theme-cell.png',
+  valorant: '/Assets/images/themes/theme-valo.png',
+  club: '/Assets/images/themes/theme-club.png',
+  'vice-city': '/Assets/images/themes/theme-vicedev.png',
+  'neon-city': '/Assets/images/themes/theme-neon.png',
+  festival: '/Assets/images/themes/theme-horizon.png',
   professional: '',
 }
 
 // Centralized theme preview images (displayed in the loading screen)
 export const THEME_PREVIEWS: Record<string, string> = {
-  professional: './Assets/images/theme-preview/pre-theme-pro.png',
-  festival: './Assets/images/theme-preview/pre-theme-horizon.png',
-  valorant: './Assets/images/theme-preview/pre-theme-valo.png',
-  club: './Assets/images/theme-preview/pre-theme-fc.png',
-  'dead-cells': './Assets/images/theme-preview/pre-theme-cell.png',
-  'vice-city': './Assets/images/theme-preview/pre-theme-vicedev.png',
-  'neon-city': './Assets/images/theme-preview/pre-theme-neon.png',
+  professional: '/Assets/images/theme-preview/pre-theme-pro.png',
+  festival: '/Assets/images/theme-preview/pre-theme-horizon.png',
+  valorant: '/Assets/images/theme-preview/pre-theme-valo.png',
+  club: '/Assets/images/theme-preview/pre-theme-fc.png',
+  'dead-cells': '/Assets/images/theme-preview/pre-theme-cell.png',
+  'vice-city': '/Assets/images/theme-preview/pre-theme-vicedev.png',
+  'neon-city': '/Assets/images/theme-preview/pre-theme-neon.png',
 }

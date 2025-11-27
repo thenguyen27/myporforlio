@@ -114,7 +114,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ currentTheme = 'festival' }) => {
                 }`}
           >
             <img
-              src="../Assets/images/avta.jpg"
+              src="/Assets/images/avta.jpg"
               alt="Profile"
               className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 
                         ${
