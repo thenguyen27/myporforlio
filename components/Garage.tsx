@@ -279,12 +279,12 @@ const Garage: React.FC<GarageProps> = ({ currentTheme = 'festival' }) => {
         <div className="max-w-7xl mx-auto px-6 mb-12 flex items-end justify-between relative z-10">
           <div>
             <h2
-              className={`text-6xl md:text-8xl font-bold uppercase ${config.titleStyle}`}
+              className={`text-4xl md:text-8xl font-bold uppercase ${config.titleStyle}`}
             >
               {config.title}
             </h2>
             <p
-              className={`text-xl font-bold italic ml-2 mt-2 ${
+              className={`text-lg md:text-xl font-bold italic ml-2 mt-2 ${
                 currentTheme === 'neon-city'
                   ? 'text-horizon-cyan'
                   : 'text-white'
@@ -299,7 +299,7 @@ const Garage: React.FC<GarageProps> = ({ currentTheme = 'festival' }) => {
         <div className="relative w-full overflow-hidden">
           {/* Moving Track */}
           <div
-            className="flex gap-8 w-max animate-marquee hover:[animation-play-state:paused] py-8 pl-6"
+            className="flex gap-4 md:gap-8 w-max animate-marquee hover:[animation-play-state:paused] py-8 pl-0 md:pl-6"
             style={{
               maskImage:
                 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
@@ -310,7 +310,7 @@ const Garage: React.FC<GarageProps> = ({ currentTheme = 'festival' }) => {
             {marqueeProjects.map((project, idx) => (
               <div
                 key={`${project.id}-${idx}`}
-                className="transform transition-transform hover:scale-105 duration-300"
+                className="transform transition-transform hover:scale-105 duration-300 w-[80vw] md:w-auto"
               >
                 <ProjectCard project={project} theme={currentTheme} />
               </div>
@@ -341,11 +341,11 @@ const Garage: React.FC<GarageProps> = ({ currentTheme = 'festival' }) => {
       <div className="max-w-7xl mx-auto px-6 mb-12 flex items-end justify-between">
         <div>
           <h2
-            className={`text-7xl md:text-9xl font-display font-bold uppercase tracking-tighter leading-[0.8] ${config.titleStyle}`}
+            className={`text-5xl md:text-9xl font-display font-bold uppercase tracking-tighter leading-[0.8] ${config.titleStyle}`}
           >
             {config.title}
           </h2>
-          <p className="text-xl font-bold italic ml-2 mt-2 text-horizon-pink">
+          <p className="text-lg md:text-xl font-bold italic ml-2 mt-2 text-horizon-pink">
             {config.subtitle}
           </p>
         </div>
@@ -362,7 +362,7 @@ const Garage: React.FC<GarageProps> = ({ currentTheme = 'festival' }) => {
       {/* Horizontal Scroll Area */}
       <div
         ref={scrollRef}
-        className={`flex overflow-x-auto pb-12 px-6 md:px-[15vw] gap-8 hide-scrollbar cursor-grab active:cursor-grabbing select-none`}
+        className={`flex overflow-x-auto pb-12 px-6 md:px-[15vw] gap-4 md:gap-8 hide-scrollbar cursor-grab active:cursor-grabbing select-none`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
@@ -372,14 +372,14 @@ const Garage: React.FC<GarageProps> = ({ currentTheme = 'festival' }) => {
         {PROJECTS.map((project) => (
           <div
             key={project.id}
-            className="py-10 transform transition-transform duration-500 hover:scale-105"
+            className="py-10 transform transition-transform duration-500 hover:scale-105 w-[85vw] md:w-auto flex-shrink-0"
           >
             <ProjectCard project={project} theme={currentTheme} />
           </div>
         ))}
 
         {/* Spacer for end of list */}
-        <div className="w-24 flex-shrink-0"></div>
+        <div className="w-6 md:w-24 flex-shrink-0"></div>
       </div>
 
       {/* Instructions Overlay if needed */}
