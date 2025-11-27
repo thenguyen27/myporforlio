@@ -79,8 +79,8 @@
 
         // If devtools open before load, redirect immediately to avoid any flash
         if (preOpen && REDIRECT_ON_DETECT) {
-          location.replace('about:blank')
-          return
+          // location.replace('about:blank')
+          // return
         }
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -89,9 +89,9 @@
 
           if (preOpen) {
             // Fallback to overlay only if not redirecting
-            createOverlay(
-              'DevTools đã bật trước khi vào trang — truy cập bị chặn.'
-            )
+            // createOverlay(
+            //   'DevTools đã bật trước khi vào trang — truy cập bị chặn.'
+            // )
           }
         })
       })()
@@ -251,6 +251,10 @@
           }
 
         function blockAction() {
+          // Blocking disabled to prevent false positives
+          console.log('DevTools detection triggered - blocking disabled')
+          return
+          /*
           if (DEVTOOLS_REDIRECT) {
             location.replace('about:blank')
             return
@@ -258,6 +262,7 @@
           if (!document.getElementById('devtools-blocker')) {
             createOverlay('DevTools đã bị vô hiệu hoá.')
           }
+          */
         }
 
         // Block common DevTools shortcuts and actions
