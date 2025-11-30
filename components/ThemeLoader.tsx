@@ -356,10 +356,6 @@ const ThemeLoader: React.FC<ThemeLoaderProps> = ({
               <img
                 src="/Assets/images/avta.jpg"
                 alt="Avatar"
-                loading="lazy"
-                decoding="async"
-                width={64}
-                height={64}
                 className={`w-full h-full object-cover transition-all duration-500 ${
                   activeTheme.id === 'valorant'
                     ? ''
