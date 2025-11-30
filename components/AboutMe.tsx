@@ -132,11 +132,11 @@ const AboutMe: React.FC<AboutMeProps> = ({ currentTheme = 'festival' }) => {
             <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
               <h3
                 className={`text-white font-bold uppercase ${
-                      currentTheme === 'dead-cells'
-                        ? 'font-pixel text-xs'
-                        : currentTheme === 'professional'
-                        ? 'font-display font-semibold text-4xl tracking-tight normal-case'
-                        : 'font-display text-4xl italic'
+                  currentTheme === 'dead-cells'
+                    ? 'font-pixel text-xs'
+                    : currentTheme === 'professional'
+                    ? 'font-display font-semibold text-4xl tracking-tight normal-case'
+                    : 'font-display text-4xl italic'
                 }`}
               >
                 Nguyen Tran
@@ -145,8 +145,8 @@ const AboutMe: React.FC<AboutMeProps> = ({ currentTheme = 'festival' }) => {
                 className={`text-white/80 ${
                   currentTheme === 'dead-cells'
                     ? 'font-pixel text-[10px]'
-                        : currentTheme === 'professional'
-                        ? 'font-mono text-sm text-[#3b82f6]'
+                    : currentTheme === 'professional'
+                    ? 'font-mono text-sm text-[#3b82f6]'
                     : 'font-sans'
                 }`}
               >
