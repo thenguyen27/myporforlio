@@ -48,12 +48,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, theme }) => {
       <div className="group relative w-80 h-[32rem] mx-4 cursor-pointer transition-transform duration-100 hover:scale-105 z-10 font-pixel flex flex-col items-center">
         {/* Item Slot (Icon representation) */}
         <div className="relative w-32 h-32 bg-[#222] border-[3px] border-[#bd6eff] shadow-[0_0_20px_rgba(189,110,255,0.4)] mb-4 hover:scale-110 transition-transform duration-200 image-pixelated flex-shrink-0 z-20 group-hover:shadow-[0_0_30px_rgba(189,110,255,0.8)]">
-          <div
-            className="w-full h-full bg-cover bg-center opacity-90 group-hover:opacity-100 transition-opacity"
-            style={{
-              backgroundImage: `url(${project.image})`,
-              filter: 'contrast(1.2) brightness(0.9)',
-            }}
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+            style={{ filter: 'contrast(1.2) brightness(0.9)' }}
           />
 
           {/* Level Tag */}
@@ -136,21 +137,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, theme }) => {
 
           {/* Player Image (Project Image) - Moved behind Shine */}
           <div className="absolute top-2 right-2 w-[75%] h-[55%] overflow-hidden rounded-tr-[16px] border-l-2 border-b-2 border-[#fbbf24]/30 shadow-inner bg-black/20 group-hover:border-[#fbbf24]/60 transition-colors duration-500 z-10">
-            <div
-              className="absolute inset-0 bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
-              style={{ backgroundImage: `url(${project.image})` }}
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
             />
             {/* Gradient Fade to Blend with Bottom */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0f172a] opacity-90" />
 
             {/* Inner Shadow for depth */}
             <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] pointer-events-none" />
-          </div>
-
-          {/* Holographic Shine Effect on Hover */}
-          <div className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-40 transition-opacity duration-500 mix-blend-overlay">
-            <div className="absolute -top-[100%] -left-[100%] w-[300%] h-[300%] bg-[linear-gradient(115deg,transparent_40%,rgba(255,255,255,0.8)_45%,rgba(255,255,255,1)_50%,rgba(255,255,255,0.8)_55%,transparent_60%)] animate-none group-hover:animate-shine-sweep transform -skew-x-12" />
-          </div>
+            <div
+              className="absolute top-2 right-2 w-[75%] h-[55%] overflow-hidden rounded-tr-[16px] border-l-2 border-b-2 border-[#fbbf24]/30 shadow-inner bg-black/20 group-hover:border-[#fbbf24]/60 transition-colors duration-500 z-10">
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
 
           {/* Top Section */}
           <div className="flex h-[60%] p-4 relative z-30">
@@ -221,12 +228,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, theme }) => {
       <div className="group relative w-80 h-[24rem] mx-4 cursor-pointer transform -skew-x-6 hover:skew-x-0 transition-all duration-300">
         <div className="absolute inset-0 bg-black border-2 border-horizon-cyan shadow-[0_0_15px_#00F0FF] group-hover:shadow-[0_0_30px_#00F0FF] transition-shadow">
           <div className="h-40 w-full relative overflow-hidden border-b border-horizon-cyan">
-            <div
-              className="absolute inset-0 bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500"
-              style={{
-                backgroundImage: `url(${project.image})`,
-                filter: 'hue-rotate(180deg) contrast(1.2)',
-              }}
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              style={{ filter: 'hue-rotate(180deg) contrast(1.2)' }}
             />
             <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0)_50%,rgba(0,240,255,0.2)_50%)] bg-[length:100%_4px] pointer-events-none" />
           </div>
@@ -280,9 +288,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, theme }) => {
           }`}
       >
         {/* Image Background */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transform scale-125 skew-x-10 group-hover:skew-x-0 transition-transform duration-500 ease-out"
-          style={{ backgroundImage: `url(${project.image})` }}
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover transform scale-125 skew-x-10 group-hover:skew-x-0 transition-transform duration-500 ease-out"
         />
 
         {/* Dark Gradient Overlay */}
