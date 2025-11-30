@@ -12,7 +12,6 @@ import ThemeLoader from './components/ThemeLoader'
 import { Menu } from 'lucide-react'
 import { ThemeConfig } from './types'
 import { THEME_PREVIEWS } from './constants'
-import { Analytics } from '@vercel/analytics/next'
 // Theme Configurations
 const THEMES: ThemeConfig[] = [
   {
@@ -238,7 +237,7 @@ function App() {
           onComplete={() => setShowLoader(false)}
         />
       )}
-      <Analytics />
+      {/* Removed Next.js-specific Analytics to avoid Vite build errors. */}
       {/* Theme Switcher */}
       <ThemeSwitcher
         currentTheme={currentThemeId}
